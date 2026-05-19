@@ -49,19 +49,17 @@ export const logout = async () => {
 }
 
 export const getMe = async () => {
-    
-    try{
 
         const response = await api.get('/api/auth/get-me')
 
-        return response.data
+        return response.data    
 
-    } catch(err){
+    //  catch(err){
 
-        if (err.response?.status === 401) return null  // return null
-        console.log(err)
+    //     if (err.response?.status === 401) return null  // return null
+    //     console.log(err)
 
-    }
+    // }
 }
 
 
