@@ -5,16 +5,42 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PrepBot</title>
+    <style>
+      body {
+        margin: 0;
+        background: #1a1035;
+      }
+
+      #root:empty {
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(180deg, #1a1035 0%, #2d1558 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #root:empty::after {
+        content: '';
+        position: relative;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        border-top-color: rgba(167, 139, 250, 0.2);
+        animation: spin 1.8s linear infinite;
+        box-shadow:
+          0 0 0 10px transparent,
+          inset 0 0 0 10px transparent;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-    <!-- public/index.html -->
-<div id="root">
-  <!-- This shows until React mounts and replaces it -->
-  <div style="display:flex; justify-content:center; align-items:center; height:100vh;">
-    <h2>Loading...</h2>
-  </div>
-</div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
