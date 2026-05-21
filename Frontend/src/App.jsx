@@ -3,7 +3,7 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from "./app.routes.jsx"
 import { AuthProvider } from './features/auth/auth.context.jsx'
 import { InterviewProvider }from './features/interview/interview.context.jsx'
-import { AuthContext } from './context/AuthContext'
+import { AuthContext } from '.features/auth/AuthContext.jsx'
 import './interview.scss'
 
 const App = () => {
