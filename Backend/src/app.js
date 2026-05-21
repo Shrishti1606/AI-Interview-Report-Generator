@@ -1,9 +1,12 @@
 require('dotenv').config()
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const cors = require('cors')
+const cors = require('cors');
+const path = require('path');
 
 const app = express();
+
+app.set('trust proxy', 1);
 
 app.use(express.json());
 
@@ -21,6 +24,10 @@ const interviewRouter = require('./routes/interview.routes')
 
 app.use('/api/auth', authRouter);
 app.use('/api/interview', interviewRouter);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
 
 
 
