@@ -240,6 +240,10 @@ $font:        system-ui, -apple-system, sans-serif;
     }
 
     &__robot-hero {
+        position: relative;
+        z-index: 2;
+        margin-bottom: -80px;
+
         svg {
             width: 300px;
             height: auto;
@@ -260,12 +264,13 @@ $font:        system-ui, -apple-system, sans-serif;
         background: linear-gradient(135deg, rgba(124,58,237,0.35), rgba(91,33,182,0.25));
         border: 1px solid $border;
         border-radius: 20px;
-        padding: 1.75rem;
+        padding: 5rem 1.75rem 1.75rem;
         width: 300px;
         backdrop-filter: blur(12px);
         animation: float 3s ease-in-out infinite;
         position: relative;
         z-index: 1;
+        padding-top: 5rem;
         box-shadow: 0 8px 32px rgba(124,58,237,0.2);
     }
 
