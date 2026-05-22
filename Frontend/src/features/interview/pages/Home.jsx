@@ -11,6 +11,7 @@ const Home = () => {
     const [selfDescription, setSelfDescription] = useState("")
     const [jobDescLength, setJobDescLength] = useState(0)
     const [resumeFile, setResumeFile] = useState(null)
+    const [showProfile, setShowProfile] = useState(false)
     const resumeInputRef = useRef()
     const navigate = useNavigate()
 
@@ -96,7 +97,7 @@ const Home = () => {
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                             New Report
                         </button>
-                        <button className='dashboard-sidebar__nav-item'>
+                        <button className='dashboard-sidebar__nav-item' onClick={() => setShowProfile(true)} >
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
                             Profile
                         </button>
@@ -238,6 +239,38 @@ const Home = () => {
                 </footer>
 
             </div>
+            {showProfile && (
+                <div className='modal-overlay' onClick={() => setShowProfile(false)}>
+                    <div className='modal' onClick={e => e.stopPropagation()}>
+                    <button className='modal__close' onClick={() => setShowProfile(false)}>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+
+                    <div className='modal__avatar'>
+                        {user?.username?.charAt(0).toUpperCase()}
+                    </div>
+
+                    <h2 className='modal__name'>{user?.username}</h2>
+                    <p className='modal__role'>Candidate</p>
+
+                    <div className='modal__info'>
+                        <div className='modal__info-item'>
+                        <span className='modal__info-label'>Email</span>
+                        <span className='modal__info-value'>{user?.email}</span>
+                        </div>
+                        <div className='modal__info-item'>
+                        <span className='modal__info-label'>Total Reports</span>
+                        <span className='modal__info-value'>{reports.length}</span>
+                        </div>
+                    </div>
+
+                    <button className='modal__logout' onClick={onLogout}>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                        Log out
+                    </button>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
