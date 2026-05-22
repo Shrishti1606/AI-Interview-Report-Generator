@@ -64,28 +64,18 @@ const RobotSVG = () => (
 
         <g className="robot-group">
             <ellipse cx="340" cy="390" rx="90" ry="12" fill="#7c3aed" opacity="0.15"/>
-
-            {/* Antenna */}
             <rect x="334" y="98" width="12" height="28" rx="4" fill="#4c1d95"/>
             <circle cx="340" cy="94" r="10" fill="#a78bfa"/>
             <circle cx="340" cy="94" r="6" fill="#c4b5fd"/>
             <circle className="robot-dot-1" cx="340" cy="94" r="6" fill="#fff" opacity="0.6"/>
-
-            {/* Ears */}
             <rect x="218" y="168" width="22" height="36" rx="8" fill="#2d1558" stroke="#a78bfa" strokeWidth="1.5"/>
             <circle className="robot-ear-l" cx="229" cy="186" r="6" fill="#a78bfa"/>
             <rect x="440" y="168" width="22" height="36" rx="8" fill="#2d1558" stroke="#a78bfa" strokeWidth="1.5"/>
             <circle className="robot-ear-r" cx="451" cy="186" r="6" fill="#a78bfa"/>
-
-            {/* Head */}
             <rect x="240" y="120" width="200" height="150" rx="32" fill="url(#body-grad)" stroke="#a78bfa" strokeWidth="1.5"/>
-
-            {/* Visor */}
             <rect x="262" y="144" width="156" height="82" rx="18" fill="url(#face-grad)" stroke="#7c3aed" strokeWidth="1"/>
             <rect x="270" y="152" width="140" height="66" rx="12" fill="url(#visor-glow)" opacity="0.18"/>
             <rect className="robot-scan" x="270" y="185" width="140" height="2" rx="1" fill="#a78bfa" opacity="0.7" clipPath="url(#visor-clip)"/>
-
-            {/* Eyes */}
             <g className="robot-eye-l">
                 <rect x="288" y="176" width="40" height="40" rx="12" fill="#1a1035" stroke="#7c3aed" strokeWidth="1"/>
                 <circle cx="308" cy="196" r="12" fill="#a78bfa" opacity="0.9"/>
@@ -98,39 +88,25 @@ const RobotSVG = () => (
                 <circle cx="372" cy="196" r="7" fill="#c4b5fd"/>
                 <circle cx="375" cy="193" r="3" fill="#fff"/>
             </g>
-
-            {/* Mouth */}
             <rect x="306" y="232" width="68" height="14" rx="7" fill="#1a1035" stroke="#7c3aed" strokeWidth="1"/>
             <circle className="robot-dot-1" cx="322" cy="239" r="4" fill="#34d399"/>
             <circle className="robot-dot-2" cx="340" cy="239" r="4" fill="#a78bfa"/>
             <circle className="robot-dot-3" cx="358" cy="239" r="4" fill="#34d399"/>
-
-            {/* Neck */}
             <rect x="318" y="270" width="44" height="18" rx="6" fill="#2d1558" stroke="#7c3aed" strokeWidth="1"/>
-
-            {/* Body */}
             <rect x="246" y="288" width="188" height="108" rx="24" fill="url(#body-grad)" stroke="#a78bfa" strokeWidth="1.5"/>
             <rect x="274" y="306" width="132" height="72" rx="14" fill="#1e1245" stroke="#7c3aed" strokeWidth="1"/>
-
-            {/* Chest dots */}
             <circle className="robot-dot-1" cx="305" cy="330" r="8" fill="#7c3aed"/>
             <circle cx="305" cy="330" r="4" fill="#a78bfa"/>
             <circle className="robot-dot-2" cx="340" cy="330" r="8" fill="#7c3aed"/>
             <circle cx="340" cy="330" r="4" fill="#c4b5fd"/>
             <circle className="robot-dot-3" cx="375" cy="330" r="8" fill="#7c3aed"/>
             <circle cx="375" cy="330" r="4" fill="#a78bfa"/>
-
-            {/* Chest bar */}
             <rect x="290" y="352" width="100" height="8" rx="4" fill="#2d1558"/>
             <rect x="290" y="352" width="62" height="8" rx="4" fill="#a78bfa" opacity="0.7"/>
-
-            {/* Arms */}
             <rect x="208" y="296" width="38" height="80" rx="16" fill="#2d1558" stroke="#a78bfa" strokeWidth="1.5"/>
             <rect x="214" y="368" width="26" height="18" rx="8" fill="#1a1035" stroke="#7c3aed" strokeWidth="1"/>
             <rect x="434" y="296" width="38" height="80" rx="16" fill="#2d1558" stroke="#a78bfa" strokeWidth="1.5"/>
             <rect x="440" y="368" width="26" height="18" rx="8" fill="#1a1035" stroke="#7c3aed" strokeWidth="1"/>
-
-            {/* Legs */}
             <rect x="282" y="390" width="48" height="28" rx="10" fill="#2d1558" stroke="#a78bfa" strokeWidth="1.5"/>
             <rect x="350" y="390" width="48" height="28" rx="10" fill="#2d1558" stroke="#a78bfa" strokeWidth="1.5"/>
         </g>
@@ -158,7 +134,6 @@ const Landing = () => {
             <div ref={cursorRef} className="custom-cursor"></div>
             <div ref={cursorRingRef} className="custom-cursor-ring"></div>
 
-            {/* Navbar */}
             <nav className="land-nav">
                 <div className="land-nav__logo">
                     <div className="land-nav__logo-icon">
@@ -172,7 +147,6 @@ const Landing = () => {
                 </div>
             </nav>
 
-            {/* Hero */}
             <section className="land-hero">
                 <div className="land-bubbles">
                     <div className="land-bub land-bub--1"></div>
@@ -203,40 +177,37 @@ const Landing = () => {
 
                 <div className="land-hero__right">
                     <div className="land-hero__circle"></div>
-                    <div className="land-hero__card">
-                        <div className="land-hero__card-header">
-                            <div className="land-hero__card-avatar">
-                                <RobotSVG />
-                            </div>
-                            <div>
-                                <div className="land-hero__card-name">Interview Report</div>
-                                <div className="land-hero__card-role">Backend Developer Role</div>
-                            </div>
-                        </div>
-                        <div className="land-hero__card-score">
-                            <span className="land-hero__card-score-label">Match Score</span>
-                            <span className="land-hero__card-score-val">85%</span>
-                        </div>
-                        <div className="land-hero__card-tags">
-                            <div className="land-hero__card-tags-label">Skill Gaps</div>
-                            <span className="land-tag land-tag--high">Docker</span>
-                            <span className="land-tag land-tag--med">TypeScript</span>
-                            <span className="land-tag land-tag--low">REST APIs</span>
-                        </div>
-                        <div className="land-hero__card-footer">
-                            5 Technical · 5 Behavioral Questions
-                        </div>
 
-                        {/* floating robot bottom right */}
-                        <div className="land-hero__card-robot">
+                    <div className="land-hero__right-col">
+                        <div className="land-hero__robot-hero">
                             <RobotSVG />
                         </div>
 
+                        <div className="land-hero__card">
+                            <div className="land-hero__card-header">
+                                <div>
+                                    <div className="land-hero__card-name">Interview Report</div>
+                                    <div className="land-hero__card-role">Backend Developer Role</div>
+                                </div>
+                            </div>
+                            <div className="land-hero__card-score">
+                                <span className="land-hero__card-score-label">Match Score</span>
+                                <span className="land-hero__card-score-val">85%</span>
+                            </div>
+                            <div className="land-hero__card-tags">
+                                <div className="land-hero__card-tags-label">Skill Gaps</div>
+                                <span className="land-tag land-tag--high">Docker</span>
+                                <span className="land-tag land-tag--med">TypeScript</span>
+                                <span className="land-tag land-tag--low">REST APIs</span>
+                            </div>
+                            <div className="land-hero__card-footer">
+                                5 Technical · 5 Behavioral Questions
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Features */}
             <section className="land-features">
                 <h2 className="land-section-title">Everything you need to <span>ace it</span></h2>
                 <p className="land-section-sub">One tool. Complete interview preparation.</p>
@@ -260,7 +231,6 @@ const Landing = () => {
                 </div>
             </section>
 
-            {/* How it works */}
             <section className="land-steps">
                 <h2 className="land-section-title">How it <span>works</span></h2>
                 <p className="land-section-sub">Three simple steps to be interview-ready</p>
@@ -285,20 +255,18 @@ const Landing = () => {
                 </div>
             </section>
 
-            {/* CTA */}
             <section className="land-cta">
                 <h2 className="land-cta__title">Ready to ace your next interview?</h2>
                 <p className="land-cta__sub">Join PrepBot and start preparing smarter today — it's completely free.</p>
                 <button onClick={() => navigate('/register')} className="land-cta__btn">Get Started Free →</button>
             </section>
 
-            {/* Footer */}
             <footer className="land-footer">
                 <div className="land-footer__logo">⭐ PrepBot</div>
                 <div className="land-footer__links">
                     <a className="land-footer__link" href="#">Privacy Policy</a>
                     <a className="land-footer__link" href="#">Terms of Service</a>
-                    <a className="land-footer__link" href="#">GitHub</a>
+                    <a className="land-footer__link" href="https://github.com/Shrishti1606/fullstack-gemini-interview-bot" target="_blank" rel="noreferrer">GitHub</a>
                 </div>
             </footer>
         </div>
