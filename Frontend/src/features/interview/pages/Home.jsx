@@ -128,7 +128,7 @@ const Home = () => {
                             <span className='dash-card__badge'>Required</span>
                         </div>
                         <textarea
-                            value = { JobDescription }
+                            value = { jobDescription }
                             onChange={(e) => { setJobDescription(e.target.value); setJobDescLength(e.target.value.length) }}
                             className='dash-textarea'
                             placeholder="Paste the full job description here..."
@@ -181,7 +181,7 @@ const Home = () => {
                                 <span className='dash-card__badge'>Optional</span>
                             </div>
                             <textarea
-                                value = { SelfDescription }
+                                value = { selfDescription }
                                 onChange={(e) => setSelfDescription(e.target.value)}
                                 className='dash-textarea dash-textarea--short'
                                 placeholder="Briefly describe your experience, key skills, and years of experience..."
