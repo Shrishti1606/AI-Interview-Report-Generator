@@ -7,18 +7,18 @@ import './features/interview/style/interview.scss'
 
 const App = () => {
 
-  const { loading } = useContext(AuthContext)
+  // const { loading } = useContext(AuthContext)
 
-  if (loading) return (
-    <div className="loading-screen">
-      <div className="loader">
-        <div className="loader__ring"></div>
-        <div className="loader__ring"></div>
-        <div className="loader__ring"></div>
-        <p className="loader__text">Loading...</p>
-      </div>
-    </div>
-  )
+  // if (loading) return (
+  //   <div className="loading-screen">
+  //     <div className="loader">
+  //       <div className="loader__ring"></di
+  //       <div className="loader__ring"></div>
+  //       <div className="loader__ring"></div>
+  //       <p className="loader__text">Loading...</p>
+  //     </div>
+  //   </div>
+  // )
 
   return (
     <AuthProvider>
