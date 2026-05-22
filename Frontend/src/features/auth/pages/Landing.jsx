@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import '../style/landing.scss'
 import { useNavigate } from 'react-router'
 import gsap from 'gsap'
+import { login } from '../../auth/services/auth.api.js' 
 
 const RobotSVG = () => (
     <svg width="260" height="300" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
@@ -153,6 +154,13 @@ const Landing = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove)
     }, [])
 
+    const handleDemo = async () => {
+        const data = await login({ email: 'demo@prepbot.app', password: 'demo1234' })
+        if (data?.user) {
+            navigate('/home')
+        }
+    }
+
     return (
         <div className="land">
             <div ref={cursorRef} className="custom-cursor"></div>
@@ -194,6 +202,9 @@ const Landing = () => {
                             <span className="land-tooltip">🚧 Coming soon!</span>
                         </div>
                     </div>
+                    <p className="land-hero__demo-link">
+                        Just exploring? <span onClick={handleDemo}>Try a demo →</span>
+                    </p>
                     <div className="land-hero__stats">
                         <div className="land-hero__stat"><span className="land-hero__stat-val">AI</span><span className="land-hero__stat-label">Powered Analysis</span></div>
                         <div className="land-hero__stat"><span className="land-hero__stat-val">5+</span><span className="land-hero__stat-label">Questions Generated</span></div>
@@ -298,7 +309,7 @@ const Landing = () => {
                 <div className="land-footer__links">
                     <a className="land-footer__link" href="#">Privacy Policy</a>
                     <a className="land-footer__link" href="#">Terms of Service</a>
-                    <a className="land-footer__link" href="#">GitHub</a>
+                    <a className="land-footer__link" href="https://github.com/Shrishti1606/fullstack-gemini-interview-bot" target="_blank" rel="noreferrer">GitHub</a>
                 </div>
             </footer>
         </div>
