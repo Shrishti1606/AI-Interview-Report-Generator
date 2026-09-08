@@ -31,5 +31,12 @@ authRouter.get('/logout', authController.logoutUserController);
  */
 authRouter.get('/get-me', authMiddleware.authUser, authController.getMeController);
 
+/**
+ * @description demo login for testing purposes
+ * @route POST /api/auth/demo-login
+ * @access Public
+ */
+authRouter.post('/demo-login', authController.demoLoginController);
+
 
 module.exports = authRouter;

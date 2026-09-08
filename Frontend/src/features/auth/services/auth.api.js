@@ -60,6 +60,16 @@ export const getMe = async () => {
     }
 }
 
+export const demoLogin = async () => {
+    try {
+        const response = await api.post('/api/auth/demo-login');
+        return response.data;
+    } catch (err) {
+        console.log(err);
+        return null;
+    }
+};
+
 
 
 

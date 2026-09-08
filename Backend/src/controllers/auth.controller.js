@@ -156,4 +156,46 @@ const getMeController = async (req, res) => {
 
 }
 
-module.exports = { registerUserController, loginUserController, logoutUserController, getMeController }
+const demoLoginController = async (req, res) => {
+
+    const demoEmail = process.env.DEMO_EMAIL;
+    const demoPassword = process.env.DEMO_PASSWORD;
+
+    const user = await userModel.findOne({ email: demoEmail });
+
+    if (!user) {
+        return res.status(404).json({ message: "Demo user not found" });
+    }
+
+    const isPasswordValid = await bcrypt.compare(demoPassword, user.password);
+
+    if (!isPasswordValid) {
+        return res.status(401).json({ message: "Demo credentials invalid" });
+    }
+
+    const token = jwt.sign(
+        { id: user._id, username: user.username },
+        process.env.JWT_SECRET,
+        { expiresIn: "1d" }
+    );
+
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        maxAge: 24 * 60 * 60 * 1000
+    });
+
+    res.status(200).json({
+        message: "Logged in as demo user",
+        user: {
+            id: user._id,
+            username: user.username,
+            email: user.email
+        }
+    });
+};
+
+module.exports = { ... demoLoginController };
+
+module.exports = { registerUserController, loginUserController, logoutUserController, getMeController, demoLoginController }

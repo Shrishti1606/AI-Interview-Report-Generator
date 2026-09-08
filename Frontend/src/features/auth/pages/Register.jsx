@@ -55,6 +55,13 @@ const Register = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove)
     }, [])
 
+    const { handleDemoLogin } = useauth();
+
+    const onDemoLogin = async () => {
+        const data = await handleDemoLogin();
+        if (data) navigate('/');
+    };
+
 
     return (
         <main className="auth-page">
@@ -126,6 +133,11 @@ const Register = () => {
                             {isSubmitting ? "Registering..." : "Register"}
                         </button>
                     </form>
+
+                    <div className="demo-divider">or</div>
+                    <button className="demo-btn" onClick={onDemoLogin} disabled={loading}>
+                        {loading ? "Loading..." : "Continue as Demo User"}
+                    </button>
 
                     <p className="auth-switch">Already have an account? <Link to="/login">Login</Link></p>
                 </div>
