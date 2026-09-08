@@ -196,6 +196,4 @@ const demoLoginController = async (req, res) => {
     });
 };
 
-module.exports = { ... demoLoginController };
-
 module.exports = { registerUserController, loginUserController, logoutUserController, getMeController, demoLoginController }

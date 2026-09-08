@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../style/landing.scss'
 import { useNavigate } from 'react-router'
 import gsap from 'gsap'
@@ -154,12 +154,24 @@ const Landing = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove)
     }, [])
 
+    // In Landing.jsx, add this useEffect
+    useEffect(() => {
+        // silently wake up the backend
+        fetch('https://prepbot-backend-1ghi.onrender.com/api/health')
+            .catch(() => {}) // ignore errors
+    }, [])
+
+    const [demoLoading, setDemoLoading] = useState(false)
+
     const handleDemo = async () => {
+        setDemoLoading(true)
         const data = await demoLogin()
         if (data?.user) {
             navigate('/home')
         }
+        setDemoLoading(false)
     }
+    
 
     return (
         <div className="land">
@@ -203,7 +215,10 @@ const Landing = () => {
                         </div>
                     </div>
                     <p className="land-hero__demo-link">
-                        Just exploring? <span onClick={handleDemo}>Try a demo →</span>
+                        Just exploring?{' '}
+                        <span onClick={handleDemo}>
+                            {demoLoading ? "Waking up server... ⏳" : "Try a demo →"}
+                        </span>
                     </p>
                     <div className="land-hero__stats">
                         <div className="land-hero__stat"><span className="land-hero__stat-val">AI</span><span className="land-hero__stat-label">Powered Analysis</span></div>

@@ -130,11 +130,6 @@ const Login = () => {
                         </button>
                     </form>
 
-                    <div className="demo-divider">or</div>
-                    <button className="demo-btn" onClick={onDemoLogin} disabled={loading}>
-                        {loading ? "Loading..." : "Continue as Demo User"}
-                    </button>
-
                     <p className="auth-switch">Don't have an account? <Link to="/register">Register</Link></p>
                 </div>
             </div>

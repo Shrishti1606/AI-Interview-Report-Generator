@@ -132,11 +132,6 @@ const Register = () => {
                         </button>
                     </form>
 
-                    <div className="demo-divider">or</div>
-                    <button className="demo-btn" onClick={onDemoLogin} disabled={loading}>
-                        {loading ? "Loading..." : "Continue as Demo User"}
-                    </button>
-
                     <p className="auth-switch">Already have an account? <Link to="/login">Login</Link></p>
                 </div>
             </div>
