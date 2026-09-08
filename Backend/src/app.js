@@ -25,16 +25,13 @@ const interviewRouter = require('./routes/interview.routes')
 app.use('/api/auth', authRouter);
 app.use('/api/interview', interviewRouter);
 
-app.get('/{*path}', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
-});
-
 app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
 });
 
-
-
+app.get('/{*path}', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
 
 
 module.exports = app;
