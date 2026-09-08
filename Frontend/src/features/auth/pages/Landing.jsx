@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import '../style/landing.scss'
 import { useNavigate } from 'react-router'
 import gsap from 'gsap'
-import { login } from '../../auth/services/auth.api.js' 
+import { login, demoLogin } from '../../auth/services/auth.api.js' 
 
 const RobotSVG = () => (
     <svg width="260" height="300" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
@@ -155,7 +155,7 @@ const Landing = () => {
     }, [])
 
     const handleDemo = async () => {
-        const data = await login({ email: 'demo@prepbot.app', password: 'demo1234' })
+        const data = await demoLogin()
         if (data?.user) {
             navigate('/home')
         }

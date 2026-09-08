@@ -14,7 +14,7 @@ const Register = () => {
     const [password, setPassword] = useState("")
     const [isSubmitting, setIsSubmitting] = useState(false)
 
-    const { handleRegister } = useauth()
+    const { handleRegister, handleDemoLogin, loading } = useauth()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -55,11 +55,9 @@ const Register = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove)
     }, [])
 
-    const { handleDemoLogin } = useauth();
-
     const onDemoLogin = async () => {
         const data = await handleDemoLogin();
-        if (data) navigate('/');
+        if (data) navigate('/home');  // ← /home not /
     };
 
 

@@ -9,7 +9,7 @@ import gsap from 'gsap'
 
 const Login = () => {
 
-    const { handleLogin } = useauth()
+    const { handleLogin, handleDemoLogin, loading } = useauth()
     const navigate = useNavigate()
 
     const [email, setEmail] = useState("")
@@ -57,11 +57,9 @@ const Login = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove)
     }, [])
 
-    const { handleDemoLogin } = useauth();
-
     const onDemoLogin = async () => {
         const data = await handleDemoLogin();
-        if (data) navigate('/');
+        if (data) navigate('/home');  // ← /home not /
     };
 
 
