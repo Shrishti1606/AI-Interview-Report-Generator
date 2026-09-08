@@ -25,7 +25,7 @@ const interviewRouter = require('./routes/interview.routes')
 app.use('/api/auth', authRouter);
 app.use('/api/interview', interviewRouter);
 
-app.get('*', (req, res) => {
+app.get('/{*path}', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 });
 
